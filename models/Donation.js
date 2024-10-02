@@ -1,16 +1,17 @@
-// models/Donation.js
 const mongoose = require('mongoose');
 
-const DonationSchema = new mongoose.Schema({
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
-  email: { type: String, required: true },
+const donationSchema = new mongoose.Schema({
+  firstName: { type: String },
+  lastName: { type: String },
+  email: { type: String },
   phone: { type: String },
   organization: { type: String },
-  donationAmount: { type: Number, required: true },
+  donationAmount: { type: Number },
   fundAllocation: { type: String },
   paymentMethod: { type: String },
   acknowledge: { type: String },
+  // Add any other fields as necessary
 });
 
-module.exports = mongoose.model('Donation', DonationSchema);
+// Use CommonJS export
+module.exports = mongoose.models.Donation || mongoose.model('Donation', donationSchema);
